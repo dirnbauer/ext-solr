@@ -59,29 +59,29 @@ use TYPO3\CMS\Scheduler\Task\TableGarbageCollectionTask;
 
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][OptimizeIndexTask::class] = [
         'extension' => 'solr',
-        'title' => 'LLL:EXT:solr/Resources/Private/Language/locallang.xlf:optimizeindex_title',
-        'description' => 'LLL:EXT:solr/Resources/Private/Language/locallang.xlf:optimizeindex_description',
+        'title' => 'solr.messages:optimizeindex_title',
+        'description' => 'solr.messages:optimizeindex_description',
         'additionalFields' => OptimizeIndexTaskAdditionalFieldProvider::class,
     ];
 
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][ReIndexTask::class] = [
         'extension' => 'solr',
-        'title' => 'LLL:EXT:solr/Resources/Private/Language/locallang.xlf:reindex_title',
-        'description' => 'LLL:EXT:solr/Resources/Private/Language/locallang.xlf:reindex_description',
+        'title' => 'solr.messages:reindex_title',
+        'description' => 'solr.messages:reindex_description',
         'additionalFields' => ReIndexTaskAdditionalFieldProvider::class,
     ];
 
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][IndexQueueWorkerTask::class] = [
         'extension' => 'solr',
-        'title' => 'LLL:EXT:solr/Resources/Private/Language/locallang.xlf:indexqueueworker_title',
-        'description' => 'LLL:EXT:solr/Resources/Private/Language/locallang.xlf:indexqueueworker_description',
+        'title' => 'solr.messages:indexqueueworker_title',
+        'description' => 'solr.messages:indexqueueworker_description',
         'additionalFields' => IndexQueueWorkerTaskAdditionalFieldProvider::class,
     ];
 
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][EventQueueWorkerTask::class] = [
         'extension' => 'solr',
-        'title' => 'LLL:EXT:solr/Resources/Private/Language/locallang_be.xlf:task.eventQueueWorkerTask.title',
-        'description' => 'LLL:EXT:solr/Resources/Private/Language/locallang_be.xlf:task.eventQueueWorkerTask.description',
+        'title' => 'solr.be:task.eventQueueWorkerTask.title',
+        'description' => 'solr.be:task.eventQueueWorkerTask.description',
         'additionalFields' => EventQueueWorkerTaskAdditionalFieldProvider::class,
     ];
 

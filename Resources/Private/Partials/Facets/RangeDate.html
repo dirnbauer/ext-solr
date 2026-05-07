@@ -29,15 +29,15 @@
 				data-range-gap="{facet.range.gap}"
 				data-facet-url="{s:uri.facet.setFacetItem(facet: facet, facetItemValue: '___FROM___-___TO___')}"
 				data-facet-reset-url="{s:uri.facet.removeFacet(facet: facet)}"
-				data-range-start-validation-text="{f:translate(key: 'daterange_start_validation', extensionName: 'solr')}"
-				data-range-end-validation-text="{f:translate(key: 'daterange_end_validation', extensionName: 'solr')}"
+				data-range-start-validation-text="{f:translate(key: 'daterange_start_validation', domain: 'solr.messages')}"
+				data-range-end-validation-text="{f:translate(key: 'daterange_end_validation', domain: 'solr.messages')}"
 				class="tx-solr-daterange"
 			>
 				<div class="row">
 					<div class="col-sm-6">
 						<label for="{facet.name}_min" class="tx-solr-daterange__label">
 							{facet.label}
-							<f:translate key="daterange_start" extensionName="solr">start date</f:translate>
+							<f:translate key="daterange_start" domain="solr.messages">start date</f:translate>
 						</label>
 						<input
 							type="date"
@@ -51,7 +51,7 @@
 					<div class="col-sm-6">
 						<label for="{facet.name}_max" class="tx-solr-daterange__label">
 							{facet.label}
-							<f:translate key="daterange_end" extensionName="solr">end date</f:translate>
+							<f:translate key="daterange_end" domain="solr.messages">end date</f:translate>
 						</label>
 						<input
 							type="date"

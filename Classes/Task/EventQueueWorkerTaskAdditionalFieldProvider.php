@@ -59,7 +59,7 @@ class EventQueueWorkerTaskAdditionalFieldProvider extends AbstractAdditionalFiel
 
         $additionalFields['limit'] = [
             'code' => '<input type="number" class="form-control" name="tx_scheduler[solr_eventqueueworkertask_limit]" value="' . (int)$taskInfo['solr_eventqueueworkertask_limit'] . '" />',
-            'label' => 'LLL:EXT:solr/Resources/Private/Language/locallang_be.xlf:task.eventQueueWorkerTask.limit',
+            'label' => 'solr.be:task.eventQueueWorkerTask.limit',
         ];
 
         return $additionalFields;

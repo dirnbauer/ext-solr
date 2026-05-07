@@ -43,7 +43,7 @@ class OptimizeIndexTaskAdditionalFieldProvider extends AbstractAdditionalFieldPr
     /**
      * Default language file of the extension link validator
      */
-    protected string $languageFile = 'LLL:EXT:solr/Resources/Private/Language/locallang.xlf';
+    protected string $languageFile = 'solr.messages';
 
     /**
      * Task information

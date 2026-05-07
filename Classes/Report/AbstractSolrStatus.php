@@ -49,7 +49,7 @@ abstract class AbstractSolrStatus implements StatusProviderInterface
     protected function translate(string $key, array $arguments = []): string
     {
         return LocalizationUtility::translate(
-            'LLL:EXT:solr/Resources/Private/Language/locallang_reports.xlf:' . $key,
+            'solr.reports:' . $key,
             null,
             $arguments,
         ) ?? $key;

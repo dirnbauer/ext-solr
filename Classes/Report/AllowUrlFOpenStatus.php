@@ -59,6 +59,6 @@ class AllowUrlFOpenStatus extends AbstractSolrStatus
      */
     public function getLabel(): string
     {
-        return 'LLL:EXT:solr/Resources/Private/Language/locallang_reports.xlf:status_solr_allow-url-open';
+        return 'solr.reports:status_solr_allow-url-open';
     }
 }

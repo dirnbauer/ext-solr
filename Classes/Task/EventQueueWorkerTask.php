@@ -119,7 +119,7 @@ final class EventQueueWorkerTask extends AbstractTask
     public function getAdditionalInformation(): string
     {
         $message = LocalizationUtility::translate(
-            'LLL:EXT:solr/Resources/Private/Language/locallang_be.xlf:task.eventQueueWorkerTask.statusMsg',
+            'solr.be:task.eventQueueWorkerTask.statusMsg',
         );
 
         $fullItemCount = $this->getEventQueueItemRepository()->count(false);

@@ -13,7 +13,7 @@ ExtensionManagementUtility::addTCAcolumns(
     [
         'no_search_sub_entries' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:solr/Resources/Private/Language/locallang_tca.xlf:pages.no_search_sub_entries',
+            'label' => 'solr.tca:pages.no_search_sub_entries',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -42,7 +42,7 @@ ExtensionManagementUtility::addFieldsToPalette(
 // Enable no_search_sub_entries for storage folders.
 $GLOBALS['TCA']['pages']['palettes']['slimmed_miscellaneous'] = [
     'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.miscellaneous',
-    'showitem' => 'no_search_sub_entries;LLL:EXT:solr/Resources/Private/Language/locallang_tca.xlf:pages.no_search_sub_entries',
+    'showitem' => 'no_search_sub_entries;solr.tca:pages.no_search_sub_entries',
 ];
 
 ExtensionManagementUtility::addToAllTCAtypes(

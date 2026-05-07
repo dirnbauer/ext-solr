@@ -1,37 +1,37 @@
-<p><f:translate key="LLL:EXT:solr/Resources/Private/Language/locallang_reports.xlf:report.solrConfig.unsupported.intro" /></p>
-<p><f:translate key="LLL:EXT:solr/Resources/Private/Language/locallang_reports.xlf:report.solrConfig.unsupported.recommendation" /></p>
+<p><f:translate key="solr.reports:report.solrConfig.unsupported.intro" /></p>
+<p><f:translate key="solr.reports:report.solrConfig.unsupported.recommendation" /></p>
 <p>
-    <f:translate key="LLL:EXT:solr/Resources/Private/Language/locallang_reports.xlf:report.solrConfig.unsupported.currentPrefix" />
+    <f:translate key="solr.reports:report.solrConfig.unsupported.currentPrefix" />
     <strong>
         <f:if condition="{solr.solrconfigName}">
             <f:then>{solr.solrconfigName}</f:then>
-            <f:else><f:translate key="LLL:EXT:solr/Resources/Private/Language/locallang_reports.xlf:status.value.notSet" /></f:else>
+            <f:else><f:translate key="solr.reports:status.value.notSet" /></f:else>
         </f:if>
     </strong>,
-    <f:translate key="LLL:EXT:solr/Resources/Private/Language/locallang_reports.xlf:report.solrConfig.unsupported.recommendedPrefix" />
+    <f:translate key="solr.reports:report.solrConfig.unsupported.recommendedPrefix" />
     <strong>{recommendedVersion}</strong>.
-    <f:translate key="LLL:EXT:solr/Resources/Private/Language/locallang_reports.xlf:report.solrConfig.unsupported.pathHint" />
+    <f:translate key="solr.reports:report.solrConfig.unsupported.pathHint" />
     <code>EXT:solr/Resources/Private/Solr/</code>.
-    <f:translate key="LLL:EXT:solr/Resources/Private/Language/locallang_reports.xlf:report.solrConfig.unsupported.schemaHint" />
+    <f:translate key="solr.reports:report.solrConfig.unsupported.schemaHint" />
 </p>
 
 <table class="table table-sm table-hover table-striped">
     <thead>
         <tr>
-            <th scope="col" colspan="2"><f:translate key="LLL:EXT:solr/Resources/Private/Language/locallang_reports.xlf:report.table.affectedSolrServer" /></th>
+            <th scope="col" colspan="2"><f:translate key="solr.reports:report.table.affectedSolrServer" /></th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <th scope="row"><f:translate key="LLL:EXT:solr/Resources/Private/Language/locallang_reports.xlf:report.table.host" /></th>
+            <th scope="row"><f:translate key="solr.reports:report.table.host" /></th>
             <td>{solr.primaryEndpoint.host}</td>
         </tr>
         <tr>
-            <th scope="row"><f:translate key="LLL:EXT:solr/Resources/Private/Language/locallang_reports.xlf:report.table.path" /></th>
+            <th scope="row"><f:translate key="solr.reports:report.table.path" /></th>
             <td>{solr.corePath}</td>
         </tr>
         <tr>
-            <th scope="row"><f:translate key="LLL:EXT:solr/Resources/Private/Language/locallang_reports.xlf:report.table.port" /></th>
+            <th scope="row"><f:translate key="solr.reports:report.table.port" /></th>
             <td>{solr.primaryEndpoint.port}</td>
         </tr>
     </tbody>

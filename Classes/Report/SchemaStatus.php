@@ -116,6 +116,6 @@ class SchemaStatus extends AbstractSolrStatus
      */
     public function getLabel(): string
     {
-        return 'LLL:EXT:solr/Resources/Private/Language/locallang_reports.xlf:status_solr_schema';
+        return 'solr.reports:status_solr_schema';
     }
 }
