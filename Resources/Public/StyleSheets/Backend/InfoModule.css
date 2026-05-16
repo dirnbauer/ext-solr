@@ -1,3 +1,10 @@
+.solr-info-module {
+    color: var(--typo3-text-color-base);
+    font-family: var(--typo3-font-family);
+    font-size: var(--typo3-font-size);
+    line-height: var(--typo3-line-height);
+}
+
 #connections-tab,
 #statistics-tab,
 #index_fields-tab,
@@ -5,36 +12,22 @@
 #reports-tab {
     color: var(--typo3-text-color-base);
     font-size: var(--typo3-font-size);
-}
-
-.solr-info-module .nav-tabs {
-    --typo3-nav-font-size: var(--typo3-font-size);
-    --typo3-nav-link-padding-x: var(--typo3-spacing);
-    --typo3-nav-link-padding-y: calc(var(--typo3-spacing) / 2);
+    line-height: var(--typo3-line-height);
 }
 
 .solr-info-module .nav-tabs .nav-link {
     align-items: center;
     display: inline-flex;
     font-family: var(--typo3-font-family);
-    font-size: var(--typo3-nav-font-size);
+    font-size: var(--typo3-font-size);
     line-height: var(--typo3-line-height);
 }
 
-.solr-info-module .badge-warning {
-    background-color: var(--typo3-surface-container-warning);
-    border: var(--typo3-component-border-width) solid var(--typo3-state-warning-border-color);
-    color: var(--typo3-surface-container-warning-text);
+.solr-info-module .badge {
+    font-size: var(--typo3-font-size);
 }
 
-.solr-info-module .badge-danger {
-    background-color: var(--typo3-surface-container-danger);
-    border: var(--typo3-component-border-width) solid var(--typo3-state-danger-border-color);
-    color: var(--typo3-surface-container-danger-text);
-}
-
-.solr-info-module .badge-warning .icon,
-.solr-info-module .badge-danger .icon {
+.solr-info-module .badge .icon {
     color: currentColor;
 }
 
@@ -54,7 +47,7 @@
 
 .solr-info-module__intro .lead {
     color: var(--typo3-text-color-variant);
-    font-size: .9375rem;
+    font-size: var(--typo3-font-size);
     font-weight: 400;
     line-height: var(--typo3-line-height);
     margin-bottom: 0;
@@ -65,8 +58,9 @@
 #index_fields-tab h2,
 #index_inspector-tab h2,
 #reports-tab h2 {
+    color: var(--typo3-text-color-base);
     font-family: var(--typo3-header-font-family);
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 600;
     line-height: 1.3;
     margin-bottom: var(--typo3-spacing);
@@ -79,15 +73,6 @@
 #reports-tab hr {
     border-color: var(--typo3-component-border-color);
     margin-block: var(--typo3-spacing);
-}
-
-#connections-tab .panel-tab,
-#statistics-tab .panel-tab,
-#index_fields-tab .panel-tab,
-#index_inspector-tab .panel-tab,
-#reports-tab .panel-tab {
-    --typo3-panel-padding-y: calc(var(--typo3-spacing) * 1.25);
-    --typo3-panel-padding-x: calc(var(--typo3-spacing) * 1.25);
 }
 
 #connections-tab .panel-body > :last-child,
@@ -140,7 +125,7 @@
 .solr-info-module__refresh-body h3 {
     color: var(--typo3-surface-container-info-text);
     font-family: var(--typo3-header-font-family);
-    font-size: var(--typo3-font-size);
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 1.3;
     margin: 0 0 calc(var(--typo3-spacing) * .25);
@@ -149,7 +134,7 @@
 .solr-info-module__refresh-body p {
     color: var(--typo3-surface-container-info-text);
     font-size: var(--typo3-font-size-small);
-    line-height: 1.4;
+    line-height: var(--typo3-line-height);
     margin: 0;
 }
 
@@ -193,7 +178,7 @@
 .solr-info-module__section-heading h3 {
     color: var(--typo3-text-color-base);
     font-family: var(--typo3-header-font-family);
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 1.3;
     margin-bottom: calc(var(--typo3-spacing) * .35);
@@ -201,6 +186,8 @@
 
 .solr-info-module__section-heading p {
     color: var(--typo3-text-color-variant);
+    font-size: var(--typo3-font-size);
+    line-height: var(--typo3-line-height);
     margin-bottom: 0;
 }
 
@@ -229,9 +216,15 @@
     align-items: center;
     cursor: pointer;
     display: inline-flex;
+    font-size: var(--typo3-font-size);
     gap: calc(var(--typo3-spacing) * .25);
     justify-content: center;
     list-style: none;
+}
+
+.solr-info-module__server-help-toggle:focus-visible {
+    outline: var(--typo3-outline-width) var(--typo3-outline-style) var(--typo3-component-focus-border-color);
+    outline-offset: 2px;
 }
 
 .solr-info-module__server-help-toggle::-webkit-details-marker {
@@ -257,7 +250,9 @@
     border-radius: var(--typo3-component-border-radius);
     color: var(--typo3-text-color-variant);
     display: grid;
+    font-size: var(--typo3-font-size);
     gap: calc(var(--typo3-spacing) * .5);
+    line-height: var(--typo3-line-height);
     margin-top: calc(var(--typo3-spacing) * .5);
     padding: calc(var(--typo3-spacing) * .75) var(--typo3-spacing);
 }
@@ -267,7 +262,7 @@
     display: grid;
     font-size: var(--typo3-font-size-small);
     gap: calc(var(--typo3-spacing) * .2);
-    line-height: 1.4;
+    line-height: var(--typo3-line-height);
     list-style: disc;
     margin: calc(var(--typo3-spacing) * .35) 0 0;
     max-width: 72rem;
@@ -326,6 +321,7 @@
     background-color: transparent;
     color: var(--typo3-text-color-base);
     display: block;
+    font-family: var(--typo3-font-family-code);
     font-size: var(--typo3-font-size-small);
     overflow-wrap: anywhere;
     padding: 0;
@@ -333,6 +329,7 @@
 
 .solr-info-module__runtime-unavailable {
     color: var(--typo3-text-color-variant);
+    font-size: var(--typo3-font-size);
     margin: 0;
 }
 
@@ -394,7 +391,7 @@
 .solr-info-module__server-metric {
     color: var(--typo3-text-color-variant);
     font-size: var(--typo3-font-size-small);
-    line-height: 1.3;
+    line-height: var(--typo3-line-height);
     margin: 0;
     padding-inline-start: calc(var(--typo3-spacing) * .15);
 }
@@ -428,8 +425,8 @@
     font-size: var(--typo3-font-size-small);
     font-weight: 700;
     gap: calc(var(--typo3-spacing) * .25);
-    line-height: 1;
-    padding: calc(var(--typo3-spacing) * .2) calc(var(--typo3-spacing) * .45);
+    line-height: 1.2;
+    padding: calc(var(--typo3-spacing) * .3) calc(var(--typo3-spacing) * .6);
     white-space: nowrap;
 }
 
@@ -439,7 +436,7 @@
 }
 
 .solr-info-module__status-pill--core {
-    font-size: .875rem;
+    font-size: var(--typo3-font-size-small);
 }
 
 .solr-info-module__status-pill--language {
@@ -484,7 +481,7 @@
     display: flex;
     font-size: var(--typo3-font-size-small);
     gap: calc(var(--typo3-spacing) * .5);
-    line-height: 1.4;
+    line-height: var(--typo3-line-height);
     margin: 0;
     padding: calc(var(--typo3-spacing) * .55) calc(var(--typo3-spacing) * .65);
 }
@@ -541,6 +538,7 @@
     border: var(--typo3-component-border-width) solid var(--typo3-component-border-color);
     border-radius: var(--typo3-component-border-radius);
     color: var(--typo3-text-color-base);
+    font-family: var(--typo3-font-family-code);
     overflow-wrap: anywhere;
     padding: calc(var(--typo3-spacing) * .2) calc(var(--typo3-spacing) * .45);
 }
@@ -548,17 +546,17 @@
 .solr-info-module__server-core {
     align-items: center;
     display: inline-flex;
-    font-size: .875rem;
+    font-size: var(--typo3-font-size-small);
     font-weight: 700;
-    line-height: 1;
-    min-height: calc(.875rem + (var(--typo3-spacing) * .4));
+    line-height: 1.2;
+    min-height: calc(var(--typo3-font-size-small) + (var(--typo3-spacing) * .4));
     width: fit-content;
 }
 
 .solr-info-module__server-language {
     color: var(--typo3-text-color-variant);
     font-size: var(--typo3-font-size-small);
-    line-height: 1.3;
+    line-height: var(--typo3-line-height);
 }
 
 .solr-info-module__server-meta {
@@ -621,6 +619,7 @@
 
 .solr-info-module__server-link-unavailable {
     color: var(--typo3-text-color-variant);
+    font-size: var(--typo3-font-size);
     margin: 0;
 }
 
@@ -640,10 +639,12 @@
     border-radius: var(--typo3-component-border-radius);
     color: var(--typo3-text-color-base);
     display: inline-flex;
+    font-size: var(--typo3-font-size);
     gap: calc(var(--typo3-spacing) * .3);
+    line-height: var(--typo3-line-height);
     max-width: 100%;
     min-width: 0;
-    padding: calc(var(--typo3-spacing) * .2) calc(var(--typo3-spacing) * .45);
+    padding: calc(var(--typo3-spacing) * .25) calc(var(--typo3-spacing) * .55);
     text-decoration: none;
     transition: var(--typo3-transition-color);
 }
@@ -678,7 +679,7 @@
     border-color: var(--typo3-component-focus-border-color);
     color: var(--typo3-component-focus-color);
     outline: var(--typo3-outline-width) var(--typo3-outline-style) color-mix(in srgb, var(--typo3-component-focus-border-color), transparent var(--typo3-outline-transparent-mix));
-    outline-offset: 1px;
+    outline-offset: 2px;
 }
 
 .solr-info-module__definition-list {
@@ -699,12 +700,16 @@
     align-items: center;
     color: var(--typo3-text-color-base);
     display: flex;
+    font-size: var(--typo3-font-size);
     font-weight: 700;
     gap: calc(var(--typo3-spacing) * .5);
     margin-bottom: calc(var(--typo3-spacing) * .5);
 }
 
 .solr-info-module__definition-item dd {
+    color: var(--typo3-text-color-base);
+    font-size: var(--typo3-font-size);
+    line-height: var(--typo3-line-height);
     margin-bottom: 0;
 }
 
@@ -714,6 +719,8 @@
     border-radius: var(--typo3-component-border-radius);
     color: var(--typo3-text-color-base);
     display: inline-block;
+    font-family: var(--typo3-font-family-code);
+    font-size: var(--typo3-font-size);
     max-width: 100%;
     overflow-wrap: anywhere;
     padding: calc(var(--typo3-spacing) * .2) calc(var(--typo3-spacing) * .45);
@@ -748,6 +755,7 @@
     border-radius: var(--typo3-component-border-radius);
     color: var(--typo3-text-color-base);
     display: inline-flex;
+    font-size: var(--typo3-font-size);
     font-weight: 700;
     gap: calc(var(--typo3-spacing) * .5);
     padding: calc(var(--typo3-spacing) * .75);
@@ -767,7 +775,7 @@
 .solr-info-module__hosted-solr-content h3 {
     color: var(--typo3-text-color-base);
     font-family: var(--typo3-header-font-family);
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 1.3;
     margin-bottom: calc(var(--typo3-spacing) * .35);
@@ -775,6 +783,8 @@
 
 .solr-info-module__hosted-solr-content p {
     color: var(--typo3-text-color-variant);
+    font-size: var(--typo3-font-size);
+    line-height: var(--typo3-line-height);
     margin-bottom: 0;
 }
 
@@ -824,7 +834,7 @@
 .solr-info-module__resource-body h4 {
     color: var(--typo3-text-color-base);
     font-family: var(--typo3-header-font-family);
-    font-size: var(--typo3-font-size);
+    font-size: 1.0625rem;
     font-weight: 700;
     line-height: 1.3;
     margin: 0 0 calc(var(--typo3-spacing) * .35);
@@ -833,7 +843,7 @@
 .solr-info-module__resource-body p {
     color: var(--typo3-text-color-variant);
     font-size: var(--typo3-font-size-small);
-    line-height: 1.4;
+    line-height: var(--typo3-line-height);
     margin: 0 0 calc(var(--typo3-spacing) * .75);
 }
 
@@ -878,6 +888,7 @@
     border-radius: var(--typo3-component-border-radius);
     box-shadow: var(--typo3-component-box-shadow);
     display: grid;
+    font-size: var(--typo3-font-size);
     gap: calc(var(--typo3-spacing) * .65);
     grid-template-columns: auto minmax(0, 1fr) auto;
     min-width: 0;
@@ -891,6 +902,7 @@
     border-radius: var(--typo3-component-border-radius);
     color: var(--typo3-text-color-variant);
     display: inline-flex;
+    font-size: var(--typo3-font-size);
     font-weight: 700;
     height: 2rem;
     justify-content: center;
@@ -900,12 +912,14 @@
 #statistics-tab .solr-info-module__phrase-keyword {
     color: var(--typo3-text-color-base);
     font-family: var(--typo3-font-family-code);
+    font-size: var(--typo3-font-size);
     font-weight: 700;
     min-width: 0;
     overflow-wrap: anywhere;
 }
 
 #statistics-tab .solr-info-module__phrase-count {
+    font-size: var(--typo3-font-size);
     justify-self: end;
     white-space: nowrap;
 }
@@ -924,6 +938,7 @@
 #index_inspector-tab .solr-info-module__index-inspector-scope-note {
     color: var(--typo3-text-color-variant);
     display: block;
+    font-size: var(--typo3-font-size);
     line-height: var(--typo3-line-height);
     margin-bottom: var(--typo3-spacing);
     max-width: 72rem;
@@ -933,6 +948,7 @@
 #index_inspector-tab .panel-title {
     align-items: center;
     display: flex;
+    font-size: var(--typo3-font-size);
     gap: calc(var(--typo3-spacing) / 2);
 }
 
@@ -967,14 +983,15 @@
 #index_fields-tab .panel-title .badge,
 #index_inspector-tab .panel-title .badge {
     flex: 0 0 auto;
+    font-size: var(--typo3-font-size);
 }
 
 #index_inspector-tab .solr-info-module__document-count-badge {
     align-items: center;
     display: inline-flex;
     justify-content: center;
-    line-height: 1;
-    min-height: 1.25rem;
+    line-height: 1.2;
+    min-height: 1.5rem;
     white-space: nowrap;
 }
 
@@ -986,7 +1003,7 @@
 #index_inspector-tab .solr-info-module__document-count-badge--secondary {
     font-size: var(--typo3-font-size-small);
     font-weight: 600;
-    padding: calc(var(--typo3-spacing) * .15) calc(var(--typo3-spacing) * .4);
+    padding: calc(var(--typo3-spacing) * .2) calc(var(--typo3-spacing) * .45);
 }
 
 #index_inspector-tab .solr-info-module__document-count-error {
@@ -1008,6 +1025,7 @@
     border-radius: var(--typo3-component-border-radius);
     color: var(--typo3-text-color-variant);
     display: grid;
+    font-size: var(--typo3-font-size-small);
     gap: calc(var(--typo3-spacing) * .75);
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
     margin: 0 0 var(--typo3-spacing);
@@ -1026,14 +1044,14 @@
     display: inline-flex;
     font-size: var(--typo3-font-size-small);
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.2;
     margin-bottom: calc(var(--typo3-spacing) * .3);
-    padding: calc(var(--typo3-spacing) * .2) calc(var(--typo3-spacing) * .45);
+    padding: calc(var(--typo3-spacing) * .25) calc(var(--typo3-spacing) * .55);
 }
 
 .solr-info-module__document-count-legend dd {
     font-size: var(--typo3-font-size-small);
-    line-height: 1.4;
+    line-height: var(--typo3-line-height);
     margin-bottom: 0;
 }
 
@@ -1049,40 +1067,42 @@
     margin-bottom: var(--typo3-spacing);
 }
 
-#index_fields-tab .well {
-    align-items: center;
+#index_fields-tab .core-metrics .card {
     background-color: var(--typo3-surface-container-low);
     border: var(--typo3-component-border-width) solid var(--typo3-component-border-color);
     border-radius: var(--typo3-component-border-radius);
     box-shadow: var(--typo3-component-box-shadow);
     color: var(--typo3-text-color-base);
+    min-height: 7rem;
+}
+
+#index_fields-tab .core-metrics .card-body {
+    align-items: center;
     display: flex;
     flex-direction: column;
     gap: calc(var(--typo3-spacing) / 2);
     justify-content: center;
-    margin-bottom: 0;
-    min-height: 7rem;
     padding: calc(var(--typo3-spacing) * 1.25);
 }
 
-#index_fields-tab .well > :last-child {
+#index_fields-tab .core-metrics .card-body > :last-child {
     margin-bottom: 0;
 }
 
-#index_fields-tab .core-metrics .well p {
+#index_fields-tab .core-metrics .card-body p {
     color: var(--typo3-text-color-base);
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.2;
     margin: 0;
 }
 
-#index_fields-tab .core-metrics .well h3 {
+#index_fields-tab .core-metrics .card-body h3 {
     color: var(--typo3-text-color-variant);
     font-family: var(--typo3-font-family);
     font-size: var(--typo3-font-size);
     font-weight: 700;
-    line-height: 1.4;
+    line-height: var(--typo3-line-height);
     margin: 0;
 }
 
@@ -1090,7 +1110,6 @@
 #index_inspector-tab .table,
 #statistics-tab .table,
 #reports-tab .table {
-    --typo3-table-font-size: var(--typo3-font-size);
     margin-bottom: 0;
 }
 
@@ -1119,6 +1138,7 @@
 #statistics-tab .table th,
 #reports-tab .table td,
 #reports-tab .table th {
+    font-size: var(--typo3-font-size);
     line-height: var(--typo3-line-height);
 }
 
@@ -1129,6 +1149,7 @@
 .solr-info-module__report-module-link {
     align-items: center;
     display: inline-flex;
+    font-size: var(--typo3-font-size);
     gap: calc(var(--typo3-spacing) * .25);
     margin-top: calc(var(--typo3-spacing) * .6);
 }
@@ -1136,12 +1157,14 @@
 .solr-info-module__report-module-note {
     color: var(--typo3-text-color-variant);
     font-size: var(--typo3-font-size-small);
+    line-height: var(--typo3-line-height);
     margin: calc(var(--typo3-spacing) * .35) 0 0;
 }
 
 .solr-info-module__report-toggle-all {
     align-items: center;
     display: inline-flex;
+    font-size: var(--typo3-font-size);
     gap: calc(var(--typo3-spacing) * .25);
     margin-bottom: 0;
 }
@@ -1228,6 +1251,7 @@
 
 .solr-info-module__report-card-title {
     color: var(--typo3-text-color-base);
+    font-size: var(--typo3-font-size);
     font-weight: 700;
 }
 
@@ -1235,11 +1259,20 @@
     align-items: center;
     cursor: pointer;
     display: inline-flex;
+    font-size: var(--typo3-font-size);
     gap: calc(var(--typo3-spacing) * .25);
-    justify-content: center;
+    justify-content: flex-end;
     line-height: 1.2;
-    min-height: 1.625rem;
-    padding: calc(var(--typo3-spacing) * .2) calc(var(--typo3-spacing) * .45);
+    min-height: 1.75rem;
+    /* Reserve enough width for a 3-digit count (~"888 Einträge") so all toggles align. */
+    min-width: 8.5rem;
+    padding: calc(var(--typo3-spacing) * .25) calc(var(--typo3-spacing) * .55);
+    text-align: end;
+}
+
+.solr-info-module__report-toggle:focus-visible {
+    outline: var(--typo3-outline-width) var(--typo3-outline-style) var(--typo3-component-focus-border-color);
+    outline-offset: 2px;
 }
 
 .solr-info-module__report-toggle-icon {
@@ -1303,7 +1336,7 @@
     display: flex;
     font-size: var(--typo3-font-size-small);
     gap: calc(var(--typo3-spacing) * .5);
-    line-height: 1.4;
+    line-height: var(--typo3-line-height);
     padding: calc(var(--typo3-spacing) * .5) calc(var(--typo3-spacing) * .6);
 }
 
@@ -1360,7 +1393,11 @@
 }
 
 .solr-info-module__production-checklist-heading h3 {
-    font-size: 1rem;
+    color: var(--typo3-text-color-base);
+    font-family: var(--typo3-header-font-family);
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.3;
     margin: 0 0 calc(var(--typo3-spacing) * .25);
 }
 
@@ -1383,8 +1420,10 @@
     box-shadow: var(--typo3-component-box-shadow);
     color: var(--typo3-text-color-base);
     display: grid;
+    font-size: var(--typo3-font-size);
     gap: calc(var(--typo3-spacing) * .6);
     grid-template-columns: auto minmax(0, 1fr) auto;
+    line-height: var(--typo3-line-height);
     padding: calc(var(--typo3-spacing) * .65) var(--typo3-spacing);
 }
 
@@ -1422,30 +1461,23 @@
 }
 
 .solr-info-module__production-checklist-body strong {
+    color: var(--typo3-text-color-base);
     font-weight: 700;
 }
 
 .solr-info-module__production-checklist-body span {
-    color: var(--typo3-text-color-secondary);
+    color: var(--typo3-text-color-variant);
+    font-size: var(--typo3-font-size-small);
     overflow-wrap: anywhere;
 }
 
 .solr-info-module__production-checklist-body .solr-info-module__production-checklist-description {
-    font-size: .85em;
+    color: var(--typo3-text-color-variant);
+    font-size: var(--typo3-font-size-small);
     font-style: italic;
-    opacity: .85;
 }
 
 @media (max-width: 767.98px) {
-    #connections-tab .panel-tab,
-    #statistics-tab .panel-tab,
-    #index_fields-tab .panel-tab,
-    #index_inspector-tab .panel-tab,
-    #reports-tab .panel-tab {
-        --typo3-panel-padding-y: var(--typo3-spacing);
-        --typo3-panel-padding-x: var(--typo3-spacing);
-    }
-
     #statistics-tab .solr-info-module__chart-panel {
         height: 18rem;
         margin-block: var(--typo3-spacing);

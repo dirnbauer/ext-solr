@@ -1,12 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <g fill="currentColor" opacity=".45">
-    <rect width="4" height="40" x="16" y="12" rx="2"/>
-    <rect width="4" height="40" x="30" y="12" rx="2"/>
-    <rect width="4" height="40" x="44" y="12" rx="2"/>
-  </g>
-  <g fill="currentColor">
-    <rect width="16" height="10" x="10" y="18" rx="2"/>
-    <rect width="16" height="10" x="38" y="26" rx="2"/>
-    <rect width="16" height="10" x="24" y="38" rx="2"/>
-  </g>
+  <path fill="none" stroke="var(--icon-color-primary, currentColor)" stroke-linecap="round" stroke-width="5" d="M14 18h22M14 32h36M14 46h22"/>
+  <path fill="var(--icon-color-primary, currentColor)" d="M41 12h9v12h-9zM27 26h9v12h-9zM41 40h9v12h-9z"/>
+  <path fill="var(--icon-color-accent, #ff8700)" d="m31 9-7 17h8l-5 17 14-23h-8l6-11z"/>
 </svg>

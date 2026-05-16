@@ -1,11 +1,8 @@
 .solr-core-optimization-module {
     color: var(--typo3-text-color-base);
+    font-family: var(--typo3-font-family);
     font-size: var(--typo3-font-size);
-}
-
-.solr-core-optimization-module .panel-tab {
-    --typo3-panel-padding-y: calc(var(--typo3-spacing) * 1.25);
-    --typo3-panel-padding-x: calc(var(--typo3-spacing) * 1.25);
+    line-height: var(--typo3-line-height);
 }
 
 .solr-core-optimization-module__intro {
@@ -24,7 +21,7 @@
 
 .solr-core-optimization-module__intro .lead {
     color: var(--typo3-text-color-variant);
-    font-size: .9375rem;
+    font-size: var(--typo3-font-size);
     font-weight: 400;
     line-height: var(--typo3-line-height);
     margin-bottom: 0;
@@ -47,7 +44,7 @@
 
 .solr-core-optimization-module__lead {
     color: var(--typo3-text-color-base);
-    font-size: .9375rem;
+    font-size: var(--typo3-font-size);
     line-height: var(--typo3-line-height);
     margin-bottom: calc(var(--typo3-spacing) * .75);
     max-width: 78rem;
@@ -56,6 +53,8 @@
 .solr-core-optimization-module__hint {
     border-top: var(--typo3-component-border-width) solid var(--typo3-component-border-color);
     color: var(--typo3-text-color-variant);
+    font-size: var(--typo3-font-size);
+    line-height: var(--typo3-line-height);
     margin-top: var(--typo3-spacing);
     padding-top: var(--typo3-spacing);
 }
@@ -94,13 +93,17 @@
 }
 
 .solr-core-optimization-module__example-value {
+    color: var(--typo3-text-color-base);
+    font-size: var(--typo3-font-size);
     line-height: var(--typo3-line-height);
     min-width: 0;
 }
 
 .solr-core-optimization-module__example-label {
     color: var(--typo3-text-color-variant);
+    font-size: var(--typo3-font-size);
     font-weight: 700;
+    line-height: var(--typo3-line-height);
 }
 
 .solr-core-optimization-module__example--compact {
@@ -115,6 +118,7 @@
     border-radius: var(--typo3-component-border-radius);
     color: var(--typo3-text-color-base);
     display: inline-block;
+    font-family: var(--typo3-font-family-code);
     font-size: var(--typo3-font-size);
     line-height: var(--typo3-line-height);
     max-width: 100%;
@@ -130,12 +134,14 @@
 }
 
 .solr-core-optimization-module__section-header .panel-title {
+    font-size: 1.125rem;
     min-width: 0;
 }
 
 .solr-core-optimization-module .btn {
     align-items: center;
     display: inline-flex;
+    font-size: var(--typo3-font-size);
     gap: calc(var(--typo3-spacing) * .4);
 }
 
@@ -150,12 +156,13 @@
 }
 
 .solr-core-optimization-module .table {
-    --typo3-table-font-size: var(--typo3-font-size);
     margin-bottom: 0;
 }
 
 .solr-core-optimization-module .table th,
 .solr-core-optimization-module .table td {
+    color: var(--typo3-text-color-base);
+    font-size: var(--typo3-font-size);
     line-height: var(--typo3-line-height);
     vertical-align: middle;
 }
@@ -182,15 +189,28 @@
     margin-bottom: var(--typo3-spacing);
 }
 
+.solr-core-optimization-module .form-group > label,
+.solr-core-optimization-module .form-group > .form-label {
+    color: var(--typo3-text-color-base);
+    font-size: var(--typo3-font-size);
+    font-weight: 600;
+}
+
 .solr-core-optimization-module .form-text {
     color: var(--typo3-text-color-variant);
-    font-size: var(--typo3-font-size);
+    font-size: var(--typo3-font-size-small);
     line-height: var(--typo3-line-height);
     margin-top: calc(var(--typo3-spacing) * .35);
 }
 
 .solr-core-optimization-module .form-check {
     margin-bottom: calc(var(--typo3-spacing) * .75);
+}
+
+.solr-core-optimization-module .form-check-label {
+    color: var(--typo3-text-color-base);
+    font-size: var(--typo3-font-size);
+    line-height: var(--typo3-line-height);
 }
 
 .solr-core-optimization-module__actions {
@@ -201,16 +221,14 @@
 }
 
 .solr-core-optimization-module__textarea {
+    font-family: var(--typo3-font-family-code);
+    font-size: var(--typo3-font-size);
+    line-height: var(--typo3-line-height);
     min-height: 16rem;
     resize: vertical;
 }
 
 @media (max-width: 767.98px) {
-    .solr-core-optimization-module .panel-tab {
-        --typo3-panel-padding-y: var(--typo3-spacing);
-        --typo3-panel-padding-x: var(--typo3-spacing);
-    }
-
     .solr-core-optimization-module__section-header,
     .solr-core-optimization-module__example-row {
         grid-template-columns: minmax(0, 1fr);
