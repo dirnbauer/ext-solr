@@ -31,6 +31,20 @@ TypoScript template records are still supported for existing installations and
 mixed setups. When using site sets, prefer dependencies between sets instead
 of cross-extension TypoScript imports or duplicated static includes.
 
+Frontend Theme Ownership
+------------------------
+
+The ``apache-solr-for-typo3/solr-bootstrap-css`` site set is an optional
+compatibility skin for projects that still want EXT:solr to provide Bootstrap
+assets for the bundled search templates. Projects with their own frontend
+system should usually depend only on ``apache-solr-for-typo3/solr`` and style
+the search templates in their sitepackage.
+
+Do not add project-specific design systems such as shadcn/ui to EXT:solr. Those
+template overrides belong in the consuming sitepackage, for example Desiderio,
+where the search result markup can share the same component and token system as
+the rest of the website.
+
 Available Site Sets
 -------------------
 
