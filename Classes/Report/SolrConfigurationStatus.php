@@ -88,8 +88,8 @@ class SolrConfigurationStatus extends AbstractSolrStatus
         if (!empty($rootPages)) {
             return GeneralUtility::makeInstance(
                 Status::class,
-                'Sites',
-                'OK',
+                $this->translate('status.configuration.sites.title'),
+                $this->translate('status.value.ok'),
                 '',
                 ContextualFeedbackSeverity::OK,
             );
@@ -98,8 +98,8 @@ class SolrConfigurationStatus extends AbstractSolrStatus
         $report = $this->getRenderedReport('RootPageFlagStatus.html');
         return GeneralUtility::makeInstance(
             Status::class,
-            'Sites',
-            'No sites found',
+            $this->translate('status.configuration.sites.title'),
+            $this->translate('status.value.noSitesFound'),
             $report,
             ContextualFeedbackSeverity::ERROR,
         );
@@ -119,18 +119,22 @@ class SolrConfigurationStatus extends AbstractSolrStatus
         if (empty($rootPagesWithIndexingOff)) {
             return GeneralUtility::makeInstance(
                 Status::class,
-                'Page Indexing',
-                'OK',
+                $this->translate('status.configuration.pageIndexing.title'),
+                $this->translate('status.value.ok'),
                 '',
                 ContextualFeedbackSeverity::OK,
             );
         }
 
-        $report = $this->getRenderedReport('SolrConfigurationStatusIndexing.html', ['pages' => $rootPagesWithIndexingOff]);
+        $affectedSiteCount = count($rootPagesWithIndexingOff);
+        $report = $this->getRenderedReport('SolrConfigurationStatusIndexing.html', [
+            'affectedSiteCount' => $affectedSiteCount,
+            'pages' => $rootPagesWithIndexingOff,
+        ]);
         return GeneralUtility::makeInstance(
             Status::class,
-            'Page Indexing',
-            'Indexing is disabled',
+            $this->translate('status.configuration.pageIndexing.title'),
+            $this->translate('status.configuration.indexingDisabled.value', ['count' => $affectedSiteCount]),
             $report,
             ContextualFeedbackSeverity::WARNING,
         );
