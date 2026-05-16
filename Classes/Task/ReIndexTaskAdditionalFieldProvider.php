@@ -121,7 +121,7 @@ class ReIndexTaskAdditionalFieldProvider extends AbstractAdditionalFieldProvider
                 'tx_scheduler[site]',
                 $this->site,
             ),
-            'label' => 'LLL:EXT:solr/Resources/Private/Language/locallang.xlf:field_site',
+            'label' => 'solr.messages:field_site',
         ];
 
         $additionalFields['indexingConfigurations'] = [

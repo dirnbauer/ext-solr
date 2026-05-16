@@ -80,12 +80,12 @@ class IndexQueueWorkerTaskAdditionalFieldProvider extends AbstractAdditionalFiel
                 'tx_scheduler[site]',
                 $taskInfo['site'],
             ),
-            'label' => 'LLL:EXT:solr/Resources/Private/Language/locallang.xlf:field_site',
+            'label' => 'solr.messages:field_site',
         ];
 
         $additionalFields['documentsToIndexLimit'] = [
             'code' => '<input type="number" class="form-control" name="tx_scheduler[documentsToIndexLimit]" value="' . htmlspecialchars((string)$taskInfo['documentsToIndexLimit']) . '" />',
-            'label' => 'LLL:EXT:solr/Resources/Private/Language/locallang.xlf:indexqueueworker_field_documentsToIndexLimit',
+            'label' => 'solr.messages:indexqueueworker_field_documentsToIndexLimit',
         ];
 
         return $additionalFields;

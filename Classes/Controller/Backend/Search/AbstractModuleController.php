@@ -415,7 +415,7 @@ abstract class AbstractModuleController extends ActionController
         $moduleData->setCore($corePath);
 
         $this->moduleDataStorageService->persistModuleData($moduleData);
-        $message = LocalizationUtility::translate('coreselector_switched_successfully', 'solr', [$corePath]);
+        $message = LocalizationUtility::translate('coreselector_switched_successfully', 'solr.messages', [$corePath]);
         $this->addFlashMessage($message);
         return new RedirectResponse($uriToRedirectTo, 303);
     }
@@ -441,7 +441,7 @@ abstract class AbstractModuleController extends ActionController
         }
         if (!$this->selectedSolrCoreConnection instanceof SolrCoreConnection && count($solrCoreConnections) > 0) {
             $this->initializeFirstAvailableSolrCoreConnection($solrCoreConnections, $moduleData);
-            $message = LocalizationUtility::translate('coreselector_switched_to_default_core', 'solr', [$currentSolrCorePath, $this->selectedSite->getLabel(), $this->selectedSolrCoreConnection->getAdminService()->getCorePath()]);
+            $message = LocalizationUtility::translate('coreselector_switched_to_default_core', 'solr.messages', [$currentSolrCorePath, $this->selectedSite->getLabel(), $this->selectedSolrCoreConnection->getAdminService()->getCorePath()]);
             $this->addFlashMessage($message, '', ContextualFeedbackSeverity::NOTICE);
         }
     }

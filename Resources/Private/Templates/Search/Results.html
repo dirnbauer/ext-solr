@@ -53,15 +53,15 @@
 				<f:if condition="{resultSet.isAutoCorrected}">
 					<f:then>
 					<span class="searched-for">
-						<f:translate key="no_results_nothing_found" arguments="{0: resultSet.initialQueryString}" extensionName="solr">Nothing found for "%s".</f:translate>
-						<f:translate key="no_results_showing_results_suggestion" arguments="{0: resultSet.correctedQueryString}" extensionName="solr">Showing results for "%s".</f:translate>
+						<f:translate key="no_results_nothing_found" arguments="{0: resultSet.initialQueryString}" domain="solr.messages">Nothing found for "%s".</f:translate>
+						<f:translate key="no_results_showing_results_suggestion" arguments="{0: resultSet.correctedQueryString}" domain="solr.messages">Showing results for "%s".</f:translate>
 					</span>
 					</f:then>
 
 					<f:else>
 						<f:if condition="{resultSet.usedQuery.rawSearchTerm}">
 						<span class="searched-for">
-							<f:translate key="results_searched_for" arguments="{0: resultSet.usedQuery.rawSearchTerm}" extensionName="solr">Searched for "%s"</f:translate>
+							<f:translate key="results_searched_for" arguments="{0: resultSet.usedQuery.rawSearchTerm}" domain="solr.messages">Searched for "%s"</f:translate>
 						</span>
 						</f:if>
 					</f:else>
@@ -69,7 +69,7 @@
 
 				<f:if condition="{resultSet.hasSpellCheckingSuggestions}">
 					<f:then>
-						<f:translate key="didYouMean" extensionName="solr">Did you mean</f:translate>
+						<f:translate key="didYouMean" domain="solr.messages">Did you mean</f:translate>
 						<f:for each="{resultSet.spellCheckingSuggestions}" as="suggestion">
 							<f:link.page additionalParams="{q: suggestion.suggestion}">{suggestion.suggestion}</f:link.page>
 						</f:for> ?
@@ -80,17 +80,17 @@
 					<span class="result-found">
 						<f:if condition="{resultSet.allResultCount} == 1">
 							<f:then>
-								<f:translate key="results_found.singular" arguments="{0: resultSet.usedSearch.queryTime}" extensionName="solr">Found 1 result in %d seconds</f:translate>
+								<f:translate key="results_found.singular" arguments="{0: resultSet.usedSearch.queryTime}" domain="solr.messages">Found 1 result in %d seconds</f:translate>
 							</f:then>
 							<f:else>
-								<f:translate key="results_found" arguments="{0: resultSet.allResultCount, 1: resultSet.usedSearch.queryTime}" extensionName="solr">Found %d results in %d seconds</f:translate>
+								<f:translate key="results_found" arguments="{0: resultSet.allResultCount, 1: resultSet.usedSearch.queryTime}" domain="solr.messages">Found %d results in %d seconds</f:translate>
 							</f:else>
 						</f:if>
 					</span>
 					<f:if condition="{pagination.allPageNumbers -> f:count()} > 1">
 						<span class="result-range">
 							<s:pageBrowserRange>
-								<f:translate key="results_range" arguments="{0: from, 1: to, 2: total}" extensionName="solr">Results %d until %d of %d</f:translate>
+								<f:translate key="results_range" arguments="{0: from, 1: to, 2: total}" domain="solr.messages">Results %d until %d of %d</f:translate>
 							</s:pageBrowserRange>
 						</span>
 					</f:if>

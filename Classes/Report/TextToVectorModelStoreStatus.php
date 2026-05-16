@@ -146,6 +146,6 @@ class TextToVectorModelStoreStatus extends AbstractSolrStatus
      */
     public function getLabel(): string
     {
-        return 'LLL:EXT:solr/Resources/Private/Language/locallang_reports.xlf:status_solr_vector_support';
+        return 'solr.reports:status_solr_vector_support';
     }
 }
