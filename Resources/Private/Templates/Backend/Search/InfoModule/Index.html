@@ -1,55 +1,61 @@
 {namespace solr=ApacheSolrForTypo3\Solr\ViewHelpers}
+{namespace core=TYPO3\CMS\Core\ViewHelpers}
 <f:layout name="Backend/WithPageTree"/>
 
 <f:section name="Main">
     <f:be.pageRenderer includeCssFiles="{0: 'EXT:solr/Resources/Public/StyleSheets/Backend/InfoModule.css'}"/>
 
-    <div role="tabpanel">
-        <ul class="nav nav-tabs t3js-tabs" role="tablist" id="tabs-tab" data-store-last-tab="1">
-            <li role="presentation" class="t3js-tabmenu-item nav-item">
-                <a href="#connections-tab" class="nav-link{f:if(condition: '{activeTabId} == 0', then: ' active')}" title="" aria-controls="tab-1" role="tab" data-bs-toggle="tab">
-                    Connections
-                </a>
+    <div class="tab-wrapper solr-info-module">
+        <header class="solr-info-module__intro">
+            <h1><f:translate key="module.heading" domain="solr.modules.info"/></h1>
+            <p class="lead"><f:translate key="module.teaser" domain="solr.modules.info"/></p>
+        </header>
+
+        <ul class="nav nav-tabs" role="tablist" id="tabs-tab" data-store-last-tab="1">
+            <li role="presentation" class="nav-item">
+                <button type="button" id="connections-tab-button" class="nav-link{f:if(condition: '{activeTabId} == 0', then: ' active')}" aria-controls="connections-tab" aria-selected="{f:if(condition: '{activeTabId} == 0', then: 'true', else: 'false')}" tabindex="{f:if(condition: '{activeTabId} == 0', then: '0', else: '-1')}" role="tab" data-typo3-tab="#connections-tab">
+                    <f:translate key="tabs.overview" domain="solr.modules.info"/>
+                </button>
             </li>
-            <li role="presentation" class="t3js-tabmenu-item nav-item ">
-                <a href="#statistics-tab" class="nav-link{f:if(condition: '{activeTabId} == 1', then: ' active')}" title="" aria-controls="tab-3" role="tab" data-bs-toggle="tab">
-                    Statistics
-                </a>
+            <li role="presentation" class="nav-item">
+                <button type="button" id="statistics-tab-button" class="nav-link{f:if(condition: '{activeTabId} == 1', then: ' active')}" aria-controls="statistics-tab" aria-selected="{f:if(condition: '{activeTabId} == 1', then: 'true', else: 'false')}" tabindex="{f:if(condition: '{activeTabId} == 1', then: '0', else: '-1')}" role="tab" data-typo3-tab="#statistics-tab">
+                    <f:translate key="tabs.statistics" domain="solr.modules.info"/>
+                </button>
             </li>
-            <li role="presentation" class="t3js-tabmenu-item nav-item ">
-                <a href="#index_fields-tab" class="nav-link{f:if(condition: '{activeTabId} == 2', then: ' active')}" title="" aria-controls="tab-2" role="tab" data-bs-toggle="tab">
-                    Index Fields
-                </a>
+            <li role="presentation" class="nav-item">
+                <button type="button" id="index-fields-tab-button" class="nav-link{f:if(condition: '{activeTabId} == 2', then: ' active')}" aria-controls="index_fields-tab" aria-selected="{f:if(condition: '{activeTabId} == 2', then: 'true', else: 'false')}" tabindex="{f:if(condition: '{activeTabId} == 2', then: '0', else: '-1')}" role="tab" data-typo3-tab="#index_fields-tab">
+                    <f:translate key="tabs.indexFields" domain="solr.modules.info"/>
+                </button>
             </li>
-            <li role="presentation" class="t3js-tabmenu-item nav-item">
-                <a href="#index_inspector-tab" class="nav-link{f:if(condition: '{activeTabId} == 3', then: ' active')}" title="" aria-controls="tab-2" role="tab" data-bs-toggle="tab">
-                    Index Documents
-                </a>
+            <li role="presentation" class="nav-item">
+                <button type="button" id="index-inspector-tab-button" class="nav-link{f:if(condition: '{activeTabId} == 3', then: ' active')}" aria-controls="index_inspector-tab" aria-selected="{f:if(condition: '{activeTabId} == 3', then: 'true', else: 'false')}" tabindex="{f:if(condition: '{activeTabId} == 3', then: '0', else: '-1')}" role="tab" data-typo3-tab="#index_inspector-tab">
+                    <f:translate key="tabs.indexDocuments" domain="solr.modules.info"/>
+                </button>
             </li>
         </ul>
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane{f:if(condition: '{activeTabId} == 0', then: ' active')}" id="connections-tab">
+            <div role="tabpanel" class="tab-pane{f:if(condition: '{activeTabId} == 0', then: ' active')}" id="connections-tab" aria-labelledby="connections-tab-button">
                 <div class="panel panel-tab">
                     <div class="panel-body">
                         <f:render section="ConnectionInfos" arguments="{_all}"/>
                     </div>
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane{f:if(condition: '{activeTabId} == 1', then: ' active')}" id="statistics-tab">
+            <div role="tabpanel" class="tab-pane{f:if(condition: '{activeTabId} == 1', then: ' active')}" id="statistics-tab" aria-labelledby="statistics-tab-button">
                 <div class="panel panel-tab">
                     <div class="panel-body">
                         <f:render section="Statistics" arguments="{_all}"/>
                     </div>
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane{f:if(condition: '{activeTabId} == 2', then: ' active')}" id="index_fields-tab">
+            <div role="tabpanel" class="tab-pane{f:if(condition: '{activeTabId} == 2', then: ' active')}" id="index_fields-tab" aria-labelledby="index-fields-tab-button">
                 <div class="panel panel-tab">
                     <div class="panel-body">
                         <f:render section="IndexFields" arguments="{_all}"/>
                     </div>
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane{f:if(condition: '{activeTabId} == 3', then: ' active')}" id="index_inspector-tab">
+            <div role="tabpanel" class="tab-pane{f:if(condition: '{activeTabId} == 3', then: ' active')}" id="index_inspector-tab" aria-labelledby="index-inspector-tab-button">
                 <div class="panel panel-tab">
                     <div class="panel-body">
                         <f:render section="IndexInspector" arguments="{_all}"/>
@@ -63,48 +69,256 @@
 <f:comment><!-- Sections --></f:comment>
 
 <f:section name="ConnectionInfos">
-    <h2>Site: {site.label}</h2>
+    <h2><f:translate key="connections.site" domain="solr.modules.info"/>: {site.label}</h2>
 
-    <f:if condition="{connectedHosts}">
-        <f:be.infobox title="Following Apache Solr servers have been contacted:" state="0">
-            <ul>
-                <f:for each="{connectedHosts}" as="connectedHost">
-                    <li>{connectedHost}</li>
-                </f:for>
-            </ul>
-        </f:be.infobox>
+    <div class="solr-info-module__connection-details" aria-label="{f:translate(key: 'connections.details.title', domain: 'solr.modules.info')}">
+        <dl class="solr-info-module__definition-list">
+            <div class="solr-info-module__definition-item">
+                <dt>
+                    <core:icon identifier="actions-info" size="small"/>
+                    <span><f:translate key="connections.domain.label" domain="solr.modules.info"/></span>
+                </dt>
+                <dd>
+                    <code>{site.domain}</code>
+                    <span class="form-text"><f:translate key="connections.domain.help" domain="solr.modules.info"/></span>
+                </dd>
+            </div>
+            <div class="solr-info-module__definition-item">
+                <dt>
+                    <core:icon identifier="actions-key" size="small"/>
+                    <span><f:translate key="connections.apiKey.label" domain="solr.modules.info"/></span>
+                </dt>
+                <dd>
+                    <code>{apiKey}</code>
+                    <span class="form-text"><f:translate key="connections.apiKey.help" domain="solr.modules.info"/></span>
+                </dd>
+            </div>
+        </dl>
+    </div>
+
+    <section class="solr-info-module__server-overview" aria-labelledby="solr-server-overview-title">
+        <div class="solr-info-module__section-heading">
+            <div>
+                <h3 id="solr-server-overview-title"><f:translate key="connections.servers.title" domain="solr.modules.info"/></h3>
+                <p><f:translate key="connections.servers.description" domain="solr.modules.info"/></p>
+                <span class="form-text solr-info-module__server-check-note">
+                    <f:translate key="connections.browserEndpoints.checkedOnLoad" domain="solr.modules.info"/>
+                </span>
+                <f:if condition="{solrServerInfo}">
+                    <span class="form-text solr-info-module__server-scope-note">
+                        <f:translate
+                            key="connections.servers.scopeNote"
+                            domain="solr.modules.info"
+                            arguments="{configured: configuredCoreCount, loaded: solrServerInfo.coreCount}"
+                        />
+                    </span>
+                </f:if>
+            </div>
+            <div class="solr-info-module__server-heading-badges">
+                <span class="badge badge-default">
+                    <f:translate key="connections.servers.configuredCount" domain="solr.modules.info" arguments="{count: configuredCoreCount}"/>
+                </span>
+                <span class="badge badge-default">
+                    <f:translate key="connections.documents.total" domain="solr.modules.info" arguments="{count: indexedDocumentTotal}"/>
+                </span>
+            </div>
+        </div>
+
+        <ul class="solr-info-module__server-list">
+            <f:for each="{connectionSummaries}" as="connection">
+                <li class="solr-info-module__server-item solr-info-module__server-item--{connection.statusClass}">
+                    <div class="solr-info-module__server-item-header">
+                        <div class="solr-info-module__server-main">
+                            <code class="solr-info-module__server-core">{connection.corePath}</code>
+                            <span class="solr-info-module__server-language">
+                                <f:translate key="connections.language.label" domain="solr.modules.info"/>: {connection.languageTitle}
+                            </span>
+                        </div>
+                        <div class="solr-info-module__server-summary">
+                            <span class="badge {f:if(condition: connection.isConnected, then: 'badge-success', else: 'badge-danger')}">
+                                <f:if condition="{connection.isConnected}">
+                                    <f:then><f:translate key="connections.status.connected" domain="solr.modules.info"/></f:then>
+                                    <f:else><f:translate key="connections.status.missing" domain="solr.modules.info"/></f:else>
+                                </f:if>
+                            </span>
+                            <span class="badge {f:if(condition: connection.documentCount, then: 'badge-success', else: 'badge-default')}">
+                                <f:translate key="connections.documents.count" domain="solr.modules.info" arguments="{count: connection.documentCount}"/>
+                            </span>
+                        </div>
+                    </div>
+                    <f:if condition="{connection.statusClass} != 'success'">
+                        <div class="solr-info-module__server-status-note solr-info-module__server-status-note--{connection.statusClass}" role="{connection.statusMessageRole}">
+                            <span class="solr-info-module__server-status-icon" aria-hidden="true">
+                                <core:icon identifier="actions-info" size="small"/>
+                            </span>
+                            <span class="solr-info-module__server-status-body">
+                                <strong class="solr-info-module__server-status-title">
+                                    <f:translate key="{connection.statusMessageTitleKey}" domain="solr.modules.info"/>
+                                </strong>
+                                <span class="solr-info-module__server-status-text">
+                                    <f:if condition="{connection.connectionErrorKey}">
+                                        <f:then>
+                                            <f:translate key="{connection.connectionErrorKey}" domain="solr.modules.info" arguments="{connection.connectionErrorArguments}"/>
+                                        </f:then>
+                                        <f:else>
+                                            <f:translate key="{connection.statusReasonKey}" domain="solr.modules.info"/>
+                                        </f:else>
+                                    </f:if>
+                                </span>
+                            </span>
+                        </div>
+                    </f:if>
+                    <div class="solr-info-module__server-meta">
+                        <div class="solr-info-module__server-links">
+                            <span class="solr-info-module__server-meta-label">
+                                <f:translate key="connections.browserEndpoints.label" domain="solr.modules.info"/>
+                            </span>
+                            <f:if condition="{connection.browserEndpoints}">
+                                <f:then>
+                                    <ul class="solr-info-module__server-link-list">
+                                        <f:for each="{connection.browserEndpoints}" as="browserEndpoint">
+                                            <li class="solr-info-module__server-link-item">
+                                                <a href="{browserEndpoint.url}" target="_blank" rel="noopener noreferrer" class="solr-info-module__server-link" title="{browserEndpoint.url}">
+                                                    <core:icon identifier="actions-window-open" size="small"/>
+                                                    <span><f:translate key="{browserEndpoint.labelKey}" domain="solr.modules.info"/></span>
+                                                    <span class="visually-hidden"> (<f:translate key="external.opensInNewWindow" domain="solr.modules.info"/>)</span>
+                                                </a>
+                                                <span class="badge {f:if(condition: browserEndpoint.isReachable, then: 'badge-success', else: 'badge-danger')}">
+                                                    <f:if condition="{browserEndpoint.isReachable}">
+                                                        <f:then><f:translate key="connections.browserEndpoint.reachable" domain="solr.modules.info"/></f:then>
+                                                        <f:else><f:translate key="connections.browserEndpoint.notReachable" domain="solr.modules.info"/></f:else>
+                                                    </f:if>
+                                                </span>
+                                            </li>
+                                        </f:for>
+                                    </ul>
+                                </f:then>
+                                <f:else>
+                                    <span class="form-text solr-info-module__server-link-unavailable">
+                                        <f:translate key="connections.browserEndpoints.unavailableInvalidEndpoint" domain="solr.modules.info"/>
+                                    </span>
+                                </f:else>
+                            </f:if>
+                        </div>
+                        <div class="solr-info-module__server-endpoint">
+                            <span class="solr-info-module__server-meta-label">
+                                <f:translate key="connections.endpoint.label" domain="solr.modules.info"/>
+                            </span>
+                            <div>
+                                <code>{connection.endpoint}</code>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </f:for>
+        </ul>
+    </section>
+
+    <f:if condition="{solrServerInfo}">
+        <section class="solr-info-module__runtime-overview" aria-labelledby="solr-runtime-overview-title">
+            <div class="solr-info-module__section-heading">
+                <div>
+                    <h3 id="solr-runtime-overview-title"><f:translate key="connections.serverInfo.title" domain="solr.modules.info"/></h3>
+                    <p><f:translate key="connections.serverInfo.description" domain="solr.modules.info"/></p>
+                </div>
+                <div class="solr-info-module__runtime-badges">
+                    <span class="badge badge-default">
+                        <f:translate key="connections.serverInfo.coreCount" domain="solr.modules.info" arguments="{count: solrServerInfo.coreCount}"/>
+                    </span>
+                    <span class="badge badge-default">
+                        <f:translate key="connections.serverInfo.indexedDocuments" domain="solr.modules.info" arguments="{count: solrServerInfo.documentCount}"/>
+                    </span>
+                </div>
+            </div>
+
+            <div class="solr-info-module__runtime-card solr-info-module__server-item--{solrServerInfo.statusClass}">
+                <div class="solr-info-module__server-links">
+                    <span class="solr-info-module__server-meta-label">
+                        <f:translate key="connections.serverInfo.adminLinks" domain="solr.modules.info"/>
+                    </span>
+                    <ul class="solr-info-module__server-link-list">
+                        <f:for each="{solrServerInfo.adminEndpoints}" as="adminEndpoint">
+                            <li class="solr-info-module__server-link-item">
+                                <a href="{adminEndpoint.url}" target="_blank" rel="noopener noreferrer" class="solr-info-module__server-link" title="{adminEndpoint.url}">
+                                    <core:icon identifier="actions-window-open" size="small"/>
+                                    <span><f:translate key="{adminEndpoint.labelKey}" domain="solr.modules.info"/></span>
+                                    <span class="visually-hidden"> (<f:translate key="external.opensInNewWindow" domain="solr.modules.info"/>)</span>
+                                </a>
+                                <span class="badge {f:if(condition: adminEndpoint.isReachable, then: 'badge-success', else: 'badge-danger')}">
+                                    <f:if condition="{adminEndpoint.isReachable}">
+                                        <f:then><f:translate key="connections.browserEndpoint.reachable" domain="solr.modules.info"/></f:then>
+                                        <f:else><f:translate key="connections.browserEndpoint.notReachable" domain="solr.modules.info"/></f:else>
+                                    </f:if>
+                                </span>
+                            </li>
+                        </f:for>
+                    </ul>
+                </div>
+
+                <f:if condition="{solrServerInfo.metrics}">
+                    <f:then>
+                        <dl class="solr-info-module__runtime-metrics">
+                            <f:for each="{solrServerInfo.metrics}" as="metric">
+                                <div class="solr-info-module__runtime-metric">
+                                    <dt><f:translate key="{metric.labelKey}" domain="solr.modules.info"/></dt>
+                                    <dd><code>{metric.value}</code></dd>
+                                </div>
+                            </f:for>
+                        </dl>
+                    </f:then>
+                    <f:else>
+                        <p class="form-text solr-info-module__runtime-unavailable">
+                            <f:translate key="connections.serverInfo.unavailable" domain="solr.modules.info"/>
+                        </p>
+                    </f:else>
+                </f:if>
+            </div>
+        </section>
     </f:if>
 
     <f:if condition="{missingHosts}">
-        <f:be.infobox title="Unable to contact following Apache Solr servers:" state="2">
-            <ul>
+        <f:be.infobox title="{f:translate(key: 'connections.missing.title', domain: 'solr.modules.info')}" state="2">
+            <ul class="solr-info-module__link-list">
                 <f:for each="{missingHosts}" as="missingHost">
-                    <li>{missingHost}</li>
+                    <li>
+                        <a href="{missingHost}" target="_blank" rel="noopener noreferrer" class="solr-info-module__inline-link">
+                            <span>{missingHost}</span>
+                            <core:icon identifier="actions-window-open" size="small"/>
+                            <span class="visually-hidden"> (<f:translate key="external.opensInNewWindow" domain="solr.modules.info"/>)</span>
+                        </a>
+                    </li>
                 </f:for>
             </ul>
         </f:be.infobox>
     </f:if>
 
     <f:if condition="{invalidPaths}">
-        <f:be.infobox title="Following paths are not valid:" state="1">
+        <f:be.infobox title="{f:translate(key: 'connections.invalidPaths.title', domain: 'solr.modules.info')}" state="1">
             <ul>
                 <f:for each="{invalidPaths}" as="invalidPath">
                     <li>{invalidPath}</li>
                 </f:for>
             </ul>
-            <p>Path should not contain the characters "*, ?, <, >, |, :, or #"!</p>
+            <p><f:translate key="connections.invalidPaths.description" domain="solr.modules.info"/></p>
         </f:be.infobox>
     </f:if>
 
-    <hr class="double" />
-    Used domain: {site.domain}
-
-    <hr class="double" />
-    API key: {apiKey}
-
-    <hr class="double" />
-
-    No solr server running? You can use <strong><a href="http://www.hosted-solr.com/" target="_blank">hosted-solr.com</a></strong> to setup a solr core with just a few clicks.
+    <aside class="solr-info-module__hosted-solr" aria-labelledby="hosted-solr-title">
+        <div class="solr-info-module__hosted-solr-brand" aria-hidden="true">
+            <core:icon identifier="extensions-solr-module-main" size="medium"/>
+            <span>hosted-solr.com</span>
+        </div>
+        <div class="solr-info-module__hosted-solr-content">
+            <h3 id="hosted-solr-title"><f:translate key="connections.hostedSolr.title" domain="solr.modules.info"/></h3>
+            <p><f:translate key="connections.hostedSolr.description" domain="solr.modules.info"/></p>
+        </div>
+        <div class="solr-info-module__hosted-solr-action">
+            <a href="https://hosted-solr.com/en/pricing/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <f:translate key="connections.hostedSolr.button" domain="solr.modules.info"/>
+                <span class="visually-hidden"> (<f:translate key="external.opensInNewWindow" domain="solr.modules.info"/>)</span>
+            </a>
+        </div>
+    </aside>
 </f:section>
 
 <f:section name="Statistics">
@@ -163,26 +377,45 @@
 
     <div class="row">
         <div class="col-md-12">
-            <canvas id="queriesOverTime" data-query-labels="{queriesChartLabels}" data-query-data="{queriesChartData}"></canvas>
+            <div class="solr-info-module__chart-panel">
+                <p id="queriesOverTimeDescription" class="visually-hidden">
+                    <f:translate key="chart.description" domain="solr.modules.info"/>
+                </p>
+                <canvas
+                    id="queriesOverTime"
+                    data-query-labels="{queriesChartLabels}"
+                    data-query-data="{queriesChartData}"
+                    role="img"
+                    aria-label="{f:translate(key: 'chart.label', domain: 'solr.modules.info')}"
+                    aria-describedby="queriesOverTimeDescription"
+                >
+                    <f:translate key="chart.description" domain="solr.modules.info"/>
+                </canvas>
+            </div>
         </div>
     </div>
 
     <f:if condition="{top_search_phrases}">
         <div class="row">
             <div class="col-md-12">
-                <h2>
-									<f:format.printf arguments="{0: '{topHitsLimit}'}">
-										<f:translate key="solr.backend.search_statistics_module.top_search_phrases"/>
-									</f:format.printf>
+                <h2 id="top-search-phrases-title">
+                    <f:format.printf arguments="{0: '{topHitsLimit}'}">
+                        <f:translate key="solr.backend.search_statistics_module.top_search_phrases"/>
+                    </f:format.printf>
                 </h2>
 
-                <ul>
-                    <f:for each="{top_search_phrases}" as="phrase">
-                        <li>
-                            {phrase.keywords} ({phrase.count})
+                <ol class="solr-info-module__phrase-list" aria-labelledby="top-search-phrases-title">
+                    <f:for each="{top_search_phrases}" as="phrase" iteration="phraseIteration">
+                        <li class="solr-info-module__phrase-item">
+                            <span class="solr-info-module__phrase-rank" aria-hidden="true">{phraseIteration.cycle}</span>
+                            <span class="visually-hidden"><f:translate key="statistics.rank" domain="solr.modules.info"/> {phraseIteration.cycle}: </span>
+                            <span class="solr-info-module__phrase-keyword">{phrase.keywords}</span>
+                            <span class="badge badge-default solr-info-module__phrase-count">
+                                <f:translate key="statistics.queryCount" domain="solr.modules.info" arguments="{count: phrase.count}"/>
+                            </span>
                         </li>
                     </f:for>
-                </ul>
+                </ol>
             </div>
         </div>
 
@@ -192,19 +425,24 @@
     <f:if condition="{top_search_phrases_without_hits}">
         <div class="row section-with-header">
             <div class="col-md-12">
-                <h2>
-									<f:format.printf arguments="{0: '{noHitsLimit}'}">
-										<f:translate key="solr.backend.search_statistics_module.top_search_phrases_without_hits"/>
-									</f:format.printf>
+                <h2 id="top-search-phrases-without-hits-title">
+                    <f:format.printf arguments="{0: '{noHitsLimit}'}">
+                        <f:translate key="solr.backend.search_statistics_module.top_search_phrases_without_hits"/>
+                    </f:format.printf>
                 </h2>
 
-                <ul>
-                    <f:for each="{top_search_phrases_without_hits}" as="phrase">
-                        <li>
-                            {phrase.keywords} ({phrase.count})
+                <ol class="solr-info-module__phrase-list" aria-labelledby="top-search-phrases-without-hits-title">
+                    <f:for each="{top_search_phrases_without_hits}" as="phrase" iteration="phraseIteration">
+                        <li class="solr-info-module__phrase-item">
+                            <span class="solr-info-module__phrase-rank" aria-hidden="true">{phraseIteration.cycle}</span>
+                            <span class="visually-hidden"><f:translate key="statistics.rank" domain="solr.modules.info"/> {phraseIteration.cycle}: </span>
+                            <span class="solr-info-module__phrase-keyword">{phrase.keywords}</span>
+                            <span class="badge badge-default solr-info-module__phrase-count">
+                                <f:translate key="statistics.queryCount" domain="solr.modules.info" arguments="{count: phrase.count}"/>
+                            </span>
                         </li>
                     </f:for>
-                </ul>
+                </ol>
             </div>
         </div>
 
@@ -219,20 +457,22 @@
 
             <f:if condition="{search_phrases_statistics}">
                 <f:then>
-                    <table class="table table-condensed table-hover table-striped">
+                    <table class="table table-sm table-hover table-striped">
                         <thead>
                         <tr class="t3-row-header">
-                            <th class="nowrap">&nbsp;</th>
-                            <th>
+                            <th class="nowrap" scope="col">
+                                <span class="visually-hidden"><f:translate key="statistics.rank" domain="solr.modules.info"/></span>
+                            </th>
+                            <th scope="col">
                                 <f:translate key="solr.backend.search_statistics_module.item_phrase"/>
                             </th>
-                            <th>
+                            <th scope="col">
                                 <f:translate key="solr.backend.search_statistics_module.item_count"/>
                             </th>
-                            <th>
+                            <th scope="col">
                                 <f:translate key="solr.backend.search_statistics_module.results"/>
                             </th>
-                            <th>
+                            <th scope="col">
                                 <f:translate key="solr.backend.search_statistics_module.percentage"/>
                             </th>
                         </tr>
@@ -265,21 +505,27 @@
         <f:for each="{indexFieldsInfoByCorePaths}" as="indexFieldsInfoForCore" iteration="iterator">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4 class="panel-title">
+                    <h4 class="panel-title" id="index-fields-heading-{iterator.index}">
                         <f:if condition="{indexFieldsInfoForCore.coreMetrics.numberOfDocuments}">
                             <f:then>
-                                <a data-bs-toggle="collapse" data-bs-parent="#index-fields_accordion" href="#collapse-core{iterator.index}">{indexFieldsInfoForCore.corePath}</a>
-                                <a href="#collapse-core{iterator.index}" title="Collapse table" class="pull-right" data-bs-toggle="collapse">
-                                    <core:icon identifier="actions-view-list-expand" size="small"/><f:comment><!-- @todo: make Icon toggable between actions-view-list-collapse/actions-view-list-expand --></f:comment>
+                                <a data-bs-toggle="collapse" data-bs-parent="#index-fields_accordion" href="#collapse-core{iterator.index}" class="solr-info-module__panel-title-link" role="button" aria-expanded="{f:if(condition: '{iterator.isFirst}', then: 'true', else: 'false')}" aria-controls="collapse-core{iterator.index}">
+                                    <span class="solr-info-module__panel-title-text">{indexFieldsInfoForCore.corePath}</span>
+                                    <span class="badge badge-default">{indexFieldsInfoForCore.coreMetrics.numberOfFields} fields</span>
+                                    <span class="solr-info-module__panel-title-icon" aria-hidden="true">
+                                        <core:icon identifier="actions-view-list-expand" size="small"/><f:comment><!-- @todo: make Icon toggable between actions-view-list-collapse/actions-view-list-expand --></f:comment>
+                                    </span>
                                 </a>
                             </f:then>
                             <f:else>
-                                <a>{indexFieldsInfoForCore.corePath} is empty!</a>
+                                <span class="solr-info-module__panel-title-link">
+                                    <span class="solr-info-module__panel-title-text">{indexFieldsInfoForCore.corePath} is empty!</span>
+                                    <span class="badge badge-default">{indexFieldsInfoForCore.coreMetrics.numberOfFields} fields</span>
+                                </span>
                             </f:else>
                         </f:if>
                     </h4>
                 </div>
-                <div id="collapse-core{iterator.index}" class="panel-collapse collapse {f:if(condition: '{iterator.isFirst}', then: 'in')}">
+                <div id="collapse-core{iterator.index}" class="panel-collapse collapse {f:if(condition: '{iterator.isFirst}', then: 'show')}" role="region" aria-labelledby="index-fields-heading-{iterator.index}">
                     <div class="panel-body">
                         <f:render partial="Backend/ApacheSolr/FieldTypesForSingleCore" arguments="{indexFieldsInfoForCore: indexFieldsInfoForCore}"/>
                     </div>
@@ -291,21 +537,33 @@
 
 
 <f:section name="IndexInspector">
+    <p class="form-text solr-info-module__index-inspector-scope-note">
+        <f:translate key="documents.scopeNote" domain="solr.modules.info"/>
+    </p>
+
     <div class="panel-group" id="index-inspector_accordion">
 
 
         <f:for each="{indexInspectorDocumentsByLanguageAndType}" as="indexInspectorDocumentsByType" key="language" iteration="currentCore">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">
-                        <a href="#panel-group3document-core-{currentCore.index}" data-bs-toggle="collapse">{indexInspectorDocumentsByType.core.corepath}</a>
-                        <a href="#panel-group3document-core-{currentCore.index}" title="Collapse table" class="pull-right" data-bs-toggle="collapse">
-                            <core:icon identifier="actions-view-list-expand" size="small"/><f:comment><!-- @todo: make Icon toggable between actions-view-list-collapse/actions-view-list-expand --></f:comment>
+                    <h3 class="panel-title" id="index-inspector-core-heading-{currentCore.index}">
+                        <a href="#panel-group3document-core-{currentCore.index}" data-bs-toggle="collapse" class="solr-info-module__panel-title-link" role="button" aria-expanded="{f:if(condition: '{currentCore.isFirst}', then: 'true', else: 'false')}" aria-controls="panel-group3document-core-{currentCore.index}">
+                            <span class="solr-info-module__panel-title-text">{indexInspectorDocumentsByType.core.corepath}</span>
+                            <span class="badge badge-default">
+                                <f:translate key="documents.pageCount" domain="solr.modules.info" arguments="{count: indexInspectorDocumentsByType.documentCount}"/>
+                            </span>
+                            <span class="badge badge-default">
+                                <f:translate key="documents.siteCount" domain="solr.modules.info" arguments="{count: indexInspectorDocumentsByType.siteDocumentCount}"/>
+                            </span>
+                            <span class="solr-info-module__panel-title-icon" aria-hidden="true">
+                                <core:icon identifier="actions-view-list-expand" size="small"/><f:comment><!-- @todo: make Icon toggable between actions-view-list-collapse/actions-view-list-expand --></f:comment>
+                            </span>
                         </a>
                     </h3>
                 </div>
 
-                <div id="panel-group3document-core-{currentCore.index}" class="panel-collapse collapse {f:if(condition: '{iterator.isFirst}', then: 'in')}">
+                <div id="panel-group3document-core-{currentCore.index}" class="panel-collapse collapse {f:if(condition: '{currentCore.isFirst}', then: 'show')}" role="region" aria-labelledby="index-inspector-core-heading-{currentCore.index}">
                     <div class="panel-body">
                         <f:for each="{indexInspectorDocumentsByType.documents}" as="documents" key="documentType">
                             <f:if condition="{documents}"> <f:comment><!-- Don't show emty panel groups if array with documents is empty. --></f:comment>
@@ -321,24 +579,29 @@
     <f:section name="PanelGroupForDocumentType">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">
-                    <a href="#panel-group4document-type-{currentCore.index}-{documentType}" data-bs-toggle="collapse">Type: {documentType} ({f:count(subject: documents)})</a>
-                    <a href="#panel-group4document-type-{currentCore.index}-{documentType}" title="Collapse table" class="pull-right" data-bs-toggle="collapse">
-                        <core:icon identifier="actions-view-list-expand" size="small"/><f:comment><!-- @todo: make Icon toggable between actions-view-list-collapse/actions-view-list-expand --></f:comment>
+                <h3 class="panel-title" id="index-inspector-type-heading-{currentCore.index}-{documentType}">
+                    <a href="#panel-group4document-type-{currentCore.index}-{documentType}" data-bs-toggle="collapse" class="solr-info-module__panel-title-link" role="button" aria-expanded="{f:if(condition: '{f:count(subject: documentsByType)} < 2', then: 'true', else: 'false')}" aria-controls="panel-group4document-type-{currentCore.index}-{documentType}">
+                        <span class="solr-info-module__panel-title-text">Type: {documentType}</span>
+                        <span class="badge badge-default">
+                            <f:translate key="documents.count" domain="solr.modules.info" arguments="{count: '{f:count(subject: documents)}'}"/>
+                        </span>
+                        <span class="solr-info-module__panel-title-icon" aria-hidden="true">
+                            <core:icon identifier="actions-view-list-expand" size="small"/><f:comment><!-- @todo: make Icon toggable between actions-view-list-collapse/actions-view-list-expand --></f:comment>
+                        </span>
                     </a>
                 </h3>
             </div>
-            <div id="panel-group4document-type-{currentCore.index}-{documentType}" class="panel-collapse collapse {f:if(condition: '{f:count(subject: documentsByType)} < 2', then: 'in', else: '')}">
+            <div id="panel-group4document-type-{currentCore.index}-{documentType}" class="panel-collapse collapse {f:if(condition: '{f:count(subject: documentsByType)} < 2', then: 'show', else: '')}" role="region" aria-labelledby="index-inspector-type-heading-{currentCore.index}-{documentType}">
                 <div class="panel-body">
                     <div class="panel-group">
-                        <table class="table table-striped table-condensed">
+                        <table class="table table-striped table-sm">
                             <tr>
-                                <th>Id</th>
-                                <th>Title</th>
-                                <th>Url</th>
-                                <th>Created</th>
-                                <th>Indexed</th>
-                                <th>Actions</th>
+                                <th scope="col">Id</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Url</th>
+                                <th scope="col">Created</th>
+                                <th scope="col">Indexed</th>
+                                <th scope="col">Actions</th>
 
                             </tr>
                             <f:for each="{documents}" as="document">
@@ -350,17 +613,15 @@
                                     <td><f:format.date format="d.m.Y H:i:s">{document.indexed}</f:format.date></td>
 
                                     <td>
-                                        <span class="btn btn-default">
-                                            <f:link.action action="documentsDetails" arguments="{uid: document.uid, type: document.type, languageUid: language, selectedPageUID: selectedPageUID}" title="Show details">
-                                                <core:icon identifier="actions-document-view" />
-                                            </f:link.action>
-                                        </span>
+                                        <f:link.action action="documentsDetails" arguments="{uid: document.uid, type: document.type, languageUid: language, selectedPageUID: selectedPageUID}" title="{f:translate(key: 'documents.action.showDetails', domain: 'solr.modules.info')}" class="btn btn-default">
+                                            <core:icon identifier="actions-document-view" />
+                                            <span class="visually-hidden"><f:translate key="documents.action.showDetails" domain="solr.modules.info"/></span>
+                                        </f:link.action>
                                         <solr:backend.security.ifHasAccessToModule extension="Solr" main="searchbackend" sub="indexqueue">
-                                            <span class="btn btn-default">
-                                                <f:be.link route="searchbackend_indexqueue.Backend\Search\IndexQueueModule_requeueDocument" parameters="{uid: document.uid, type: document.type}">
-                                                    <core:icon identifier="actions-refresh" />
-                                                </f:be.link>
-                                            </span>
+                                            <f:be.link route="searchbackend_indexqueue.Backend\Search\IndexQueueModule_requeueDocument" parameters="{uid: document.uid, type: document.type}" title="{f:translate(key: 'documents.action.requeue', domain: 'solr.modules.info')}" class="btn btn-default">
+                                                <core:icon identifier="actions-refresh" />
+                                                <span class="visually-hidden"><f:translate key="documents.action.requeue" domain="solr.modules.info"/></span>
+                                            </f:be.link>
                                         </solr:backend.security.ifHasAccessToModule>
                                     </td>
                                 </tr>
