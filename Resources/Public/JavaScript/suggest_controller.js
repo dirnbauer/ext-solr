@@ -86,7 +86,8 @@ class SuggestController {
     this.abortController = new AbortController();
 
     try {
-      const url = `${this.suggestURL}&tx_solr%5BqueryString%5D=${encodeURIComponent(query)}`;
+      const separator = this.suggestURL.includes('?') ? '&' : '?';
+      const url = `${this.suggestURL}${separator}tx_solr%5BqueryString%5D=${encodeURIComponent(query)}`;
       const response = await fetch(
         url,
         { signal: this.abortController.signal }
@@ -181,7 +182,7 @@ class SuggestController {
     // If nothing is selected or suggestion box is closed then submit form
     if ((cursor === undefined || cursor === -1) || !this.autoCompleteInstance.isOpen) {
       if (this.autoCompleteInstance.input.value.length) {
-        this.form.submit()
+        this.form.requestSubmit()
       }
     } else {
       this.autoCompleteInstance.select(cursor)
@@ -257,21 +258,13 @@ class SuggestController {
     document.body.appendChild(list);
 
     const input = this.autoCompleteInstance.input;
-    let top = 0;
-    let left = 0;
-    let element = input;
+    const inputRect = input.getBoundingClientRect();
 
-    while (element) {
-      top += element.offsetTop;
-      left += element.offsetLeft;
-      element = element.offsetParent;
-    }
-
-    list.style.top = `${top + input.offsetHeight}px`;
-    list.style.left = `${left}px`;
-    list.style.width = `${input.offsetWidth}px`;
+    list.style.top = `${inputRect.bottom + window.scrollY}px`;
+    list.style.left = `${inputRect.left + window.scrollX}px`;
+    list.style.width = `${inputRect.width}px`;
   }
-x
+
   /**
    * Build suggestion box with autoCompleteJS
    * https://tarekraafat.github.io/autoComplete.js/#/configuration
@@ -340,7 +333,7 @@ x
                 // Get href from selected item and open it
                 window.location.href = resultItems[selectionIndex].children[0].href
               } else {
-                this.form.submit()
+                this.form.requestSubmit()
               }
             },
             navigate: (event) => {
@@ -355,6 +348,7 @@ x
             },
             open: () => {
               this.lastSelectedIndex = null
+              this.setSuggestionBoxWidthAndPosition();
             },
             close: () => {
               this.lastSelectedIndex = null
